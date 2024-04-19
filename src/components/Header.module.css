@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+
+  height:13rem;
+  width: 100%;
+
+  background-color: var(--blue-300);
+}
+
+header p {
+  font-family: 'Permanent Marker', sans-serif ;
+  font-weight: bold;
+  font-size: 3rem;
+
+  color: var(--yellow-800);
+}
