@@ -2,10 +2,12 @@ import  styles from './ToDoList.module.css'
 import {ClipboardText } from '@phosphor-icons/react'
 import { ITask } from '../App';
 import { Task } from './Task';
+import React from 'react';
 
 export interface ToDoProps {
   tasksList: ITask[]
-  onToggleTask: (id: number) => void
+  onToggleTask: (event: React.MouseEvent, id: number) => void
+  onRemoveTask: (event: React.MouseEvent, id: number) => void
 }
 
 
@@ -27,7 +29,14 @@ export function ToDoList(props: ToDoProps) {
             {props.tasksList.map((task: ITask) =>
             {
               return (
-                <Task id={task.id} key={task.id} isChecked={task.isChecked} content={task.content} onHandleToggleTask={props.onToggleTask} />
+                <Task
+                  id={task.id}
+                  key={task.id}
+                  isChecked={task.isChecked}
+                  content={task.content}
+                  onHandleToggleTask={props.onToggleTask}
+                  onRemoveTask={props.onRemoveTask}
+                />
               )
             })}
           </div>

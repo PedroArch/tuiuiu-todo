@@ -4,7 +4,7 @@ import { Subheader } from './components/Subheader'
 import './styles.css'
 import styles from './App.module.css'
 import { ToDoList } from './components/ToDoList'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { CloudFog } from '@phosphor-icons/react'
 
 export interface ITask {
@@ -33,7 +33,9 @@ function App() {
     console.log("DISPARADO ADD")
   }
 
-  function handleToggleTask(id: number) {
+  function handleToggleTask(event: React.MouseEvent, id: number) {
+    event.stopPropagation();
+
     const updatedTasksList: ITask[] = tasks.map(task => {
       if (task.id === id) {
         return { ...task, isChecked: !task.isChecked };
@@ -46,12 +48,24 @@ function App() {
     setTasks(updatedTasksList);
   }
 
+  function handleRemoveTask(event: React.MouseEvent, id: number) {
+    event.stopPropagation();
+
+    const updatedTasksList = tasks.filter(task => task.id !== id);
+
+    setTasks(updatedTasksList);
+  }
+
   return (
     <div className={styles.wrapper}>
       <Header />
       <Search onAddTask={handleAddTask}/>
-      <Subheader />
-      <ToDoList tasksList={tasks} onToggleTask={handleToggleTask} />
+      <Subheader tasks={tasks}/>
+      <ToDoList
+        tasksList={tasks}
+        onToggleTask={handleToggleTask}
+        onRemoveTask={handleRemoveTask}
+      />
     </div>
   )
 }

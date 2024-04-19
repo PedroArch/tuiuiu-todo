@@ -16,12 +16,37 @@
   align-items: center;
 }
 
-.counter {
-
+.counterTasks {
   width: 1.5625rem;
   height: 1.1875rem;
 
   border-radius: 999px;
+
+  color: var(--gray-200);
+  background-color: var(--blue-800);
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.counterZero {
+  width: 1.5625rem;
+  height: 1.1875rem;
+
+  border-radius: 999px;
+
+  color: var(--gray-200);
+  background-color: var(--blue-800);
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.counter {
+  width: 3.2rem;
+  height: 1.1875rem;
+
+  border-radius: 8px;
 
   color: var(--gray-200);
   background-color: var(--blue-800);
