@@ -5,7 +5,6 @@ import './styles.css'
 import styles from './App.module.css'
 import { ToDoList } from './components/ToDoList'
 import React, { useState } from 'react'
-import { CloudFog } from '@phosphor-icons/react'
 
 export interface ITask {
   id: number,
